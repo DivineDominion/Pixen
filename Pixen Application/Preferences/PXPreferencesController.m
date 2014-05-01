@@ -27,7 +27,7 @@
 - (id)init
 {
 	self = [super initWithWindowNibName:@"PXPreferences"];
-	_selectedTab = -1;
+	_selectedTab = PXPreferencesTabNone;
 	return self;
 }
 
@@ -51,11 +51,11 @@
 	frame.origin.y += deltaY;
 	frame.size.height -= deltaY;
 	
-	if (_selectedTab != -1) {
-		[[[self window] animator] setFrame:frame display:YES];
+	if (_selectedTab == PXPreferencesTabNone) {
+		[[self window] setFrame:frame display:YES];
 	}
 	else {
-		[[self window] setFrame:frame display:YES];
+		[[[self window] animator] setFrame:frame display:YES];
 	}
 	
 	[[[self window] contentView] addSubview:childView];

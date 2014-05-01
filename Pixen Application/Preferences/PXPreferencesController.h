@@ -6,6 +6,7 @@
 //
 
 typedef enum {
+    PXPreferencesTabNone = -1,
 	PXPreferencesTabGeneral = 0,
 	PXPreferencesTabHotkeys
 } PXPreferencesTab;
